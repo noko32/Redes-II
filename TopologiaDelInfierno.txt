@@ -1,0 +1,75 @@
+//////////////////////////////////////////////////////////////
+Area EIGRP
+/////////////////////////////////////////////////////////////
+
+-----------------------------------------
+Switch 1
+
+int range fa0/1-2
+channel-protocol lacp
+channel-group 3 mode active
+
+int range fa0/4-5
+channel-protocol lacp
+channel-group 4 mode active
+
+int range fa0/6-7
+channel-protocol lacp
+channel-group 2 mode active
+
+-----------------------------------------
+Switch 2
+
+int range fa0/1-2
+channel-protocol lacp
+channel-group 3 mode active
+
+int range fa0/4-5
+channel-protocol lacp
+channel-group 5 mode active
+
+int range fa0/6-7
+channel-protocol lacp
+channel-group 1 mode active
+
+-----------------------------------------
+Switch 6
+
+int range fa0/1-2
+channel-protocol lacp
+channel-group 1 mode active
+
+int range fa0/3-4
+channel-protocol lacp
+channel-group 4 mode active
+
+
+-----------------------------------------
+Switch 5
+
+int range fa0/1-2
+channel-protocol lacp
+channel-group 5 mode active
+
+int range fa0/5-6
+channel-protocol lacp
+channel-group 2 mode active
+
+/////////////////////////////////////////////////////////////
+Area OSPF
+/////////////////////////////////////////////////////////////
+
+-----------------------------------------
+Switch 3
+
+int range fa0/1-2
+channel-protocol lacp
+channel-group 1 mode active
+
+-----------------------------------------
+Switch 4
+
+int range fa0/1-2
+channel-protocol lacp
+channel-group 1 mode active
+
