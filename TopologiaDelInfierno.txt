@@ -37,6 +37,9 @@ switchport mode trunk
 int port-channel 2
 switchport mode trunk
 
+int fa0/3
+switchport mode trunk
+
 
 
 -----------------------------------------
@@ -66,6 +69,8 @@ switchport mode trunk
 int port-channel 1
 switchport mode trunk
 
+int fa0/3
+switchport mode trunk
 
 -----------------------------------------
 Switch 6
