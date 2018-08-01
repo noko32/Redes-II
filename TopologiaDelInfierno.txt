@@ -228,6 +228,16 @@ channel-protocol lacp
 channel-group 1 mode active
 int port-channel 1
 switchport mode trunk
+int range fa0/4-24, gi0/1-2
+sw mode access
+sw port-security
+sw port-security violation shutdown
+sw port-security mac-address sticky
+sw port-security maximum 2
+no cdp enable
+exit
+int range fa0/6-21, gi0/1-2
+shutdown
 
 -----------------------------------------
 Switch 4
@@ -240,4 +250,14 @@ channel-protocol lacp
 channel-group 1 mode active
 int port-channel 1
 switchport mode trunk
+int rang fa0/4-24, gi0/1-2
+sw mode access
+sw port-security
+sw port-security violation shutdown
+sw port-security mac-address sticky
+sw port-security maximum 2
+no cdp enable
+exit
+int range fa0/6-24, gi0/1-2
+shutdown
 
