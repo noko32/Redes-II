@@ -2,10 +2,33 @@ POR ESPECIFICAR
   vtp domain: uag.mx
   vtp password: cisco
   
+NOMBRES DE ACUERDO A LA TOPOLOGIA
+  
 
 //////////////////////////////////////////////////////////////
 Area EIGRP
 /////////////////////////////////////////////////////////////
+-----------------------------------------
+Router 5
+
+enable
+config t
+hostname ROUTER5
+int loop 0
+ip address 172.17.160.1 255.255.255.0
+int loop 1
+ip address 172.17.168.1 255.255.255.0
+
+
+-----------------------------------------
+Router 3
+enable
+config t
+hostname ROUTER3
+int loop 0
+ip address 172.16.144.1 255.255.248.0
+int loop 1
+ip address 172.16.152.1 255.255.252.0
 
 -----------------------------------------
 Switch 1 - Servidor VTP
@@ -160,6 +183,39 @@ shutdown
 /////////////////////////////////////////////////////////////
 Area OSPF
 /////////////////////////////////////////////////////////////
+-----------------------------------------
+Router 2
+
+enable
+config t
+hostname ROUTER2
+int loop 0
+ip address 172.19.192.1 255.255.192.0
+int loop 1
+ip address 172.19.224.1 255.255.240.0
+
+-----------------------------------------
+Router 7
+
+enable
+conf t
+hostname ROUTER7
+int loop 0
+ip address 192.168.120.1 255.255.255.0
+int loop 1
+ip address 192.168.121.1 255.255.255.0
+int loop 2
+ip address 192.168.122.1 255.255.255.0
+
+-----------------------------------------
+Router 9
+enable
+conf t
+hostname ROUTER9
+int loop 0
+ip address 172.18.0.1 255.255.192
+int loop 1
+ip address 172.17.128.1 255.255.255.224
 
 ------------------------------------------
 Switch 3
