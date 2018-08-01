@@ -14,12 +14,14 @@ enable
 config t
 hostname SWITCH1
 vtp domain uag.mx
-vtp password ciscouag 
+vtp password cisco
 vtp mode server
 
 vlan 50
 vlan 55
 vlan 80
+vlan 99
+name OFF
 
 int range fa0/1-2
 channel-protocol lacp
@@ -110,6 +112,7 @@ int range fa0/5-24, gi0/1-2
 switchport port-security maximum 2
 switchport port-security mac-address sticky
 int range fa0/8-24, gi0/1-2
+switchport access vlan 99
 shutdown
 
 
@@ -151,6 +154,7 @@ int range fa0/3-4, fa0/8-24, gi0/1-2
 switchport port-security maximum 2
 switchport port-security mac-address sticky
 int range fa0/8-24, gi0/1-2
+switchport access vlan 99
 shutdown
 
 /////////////////////////////////////////////////////////////
