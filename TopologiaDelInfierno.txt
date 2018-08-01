@@ -1,6 +1,6 @@
 POR ESPECIFICAR 
   vtp domain: uag.mx
-  vtp password: 
+  vtp password: cisco
   
 
 //////////////////////////////////////////////////////////////
