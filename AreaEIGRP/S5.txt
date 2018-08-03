@@ -1,0 +1,17 @@
+///////////////Basic Remote Access////////////////////////
+enable
+conf t
+hostname S5
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
