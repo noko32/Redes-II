@@ -1,7 +1,6 @@
-///////////////Basic Remote Access////////////////////////
 enable
 conf t
-hostname R3
+hostname R6
 banner motd #Solo personal autorizado#
 username gmedina secret cisco
 ip domain-name uag.mx

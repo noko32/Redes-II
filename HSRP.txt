@@ -1,0 +1,100 @@
+R5
+ena
+conf t
+hostname R5
+int g0/0
+no shut
+int g0/0.50
+encapsulation dot1q 50
+ip add 192.168.80.2 255.255.255.0
+standby 1 ip 192.168.80.1
+standby 1 priority 110
+int g0/0.55
+encapsulation dot1q 55
+ip add 192.168.81.2 255.255.255.128
+standby 2 ip 192.168.81.1
+standby 2 priority 110
+int g0/0.80
+encapsulation dot1q 80
+ip add 192.168.81.130 255.255.255.192
+standby 3 ip 192.168.81.129 
+standby 3 priority 110
+int s0/0/0
+ip add 192.168.81.194 255.255.255.252
+
+R6
+ena
+conf t
+hostname R6
+int g0/0
+no shut
+int g0/0.50
+encapsulation dot1q 50
+ip add 192.168.80.2 255.255.255.0
+standby 1 ip 192.168.80.1
+int g0/0.55
+encapsulation dot1q 55
+ip add 192.168.81.2 255.255.255.128
+standby 2 ip 192.168.81.1
+int g0/0.80
+encapsulation dot1q 80
+ip add 192.168.81.130 255.255.255.192
+standby 3 ip 192.168.81.129 
+int s0/0/0
+ip add 192.168.81.198 255.255.255.252
+
+R8
+ena
+conf t
+hostname R8
+int g0/0
+no shut
+int g0/0.30
+encapsulation dot1q 30
+ip add 10.10.0.2 255.255.255.0
+standby 1 ip 10.10.0.1
+standby 1 priority 110
+int g0/0.35
+encapsulation dot1q 35
+ip add 10.10.1.2 255.255.255.0
+standby 2 ip 10.10.1.1
+standby 2 priority 110
+int g0/0.40
+encapsulation dot1q 40
+ip add 10.10.2.2 255.255.255.128
+standby 3 ip 10.10.2.1
+standby 3 priority 110
+int g0/0.45
+encapsulation dot1q 45
+ip add 10.10.2.130 255.255.255.224
+standby 4 ip 10.10.2.129
+standby 4 priority 110
+int s0/0/0
+ip add 10.10.2.163 255.255.255.252
+
+R8
+ena
+conf t
+hostname R8
+int g0/0
+no shut
+int g0/0.30
+encapsulation dot1q 30
+ip add 10.10.0.2 255.255.255.0
+standby 1 ip 10.10.0.1
+int g0/0.35
+encapsulation dot1q 35
+ip add 10.10.1.2 255.255.255.0
+standby 2 ip 10.10.1.1
+int g0/0.40
+encapsulation dot1q 40
+ip add 10.10.2.2 255.255.255.128
+standby 3 ip 10.10.2.1
+int g0/0.45
+encapsulation dot1q 45
+ip add 10.10.2.130 255.255.255.224
+standby 4 ip 10.10.2.129
+int s0/0/0
+ip add 10.10.2.166 255.255.255.252
+
+
