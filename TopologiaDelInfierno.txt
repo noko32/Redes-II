@@ -45,8 +45,40 @@ encapsulation dot1q 80
 ip add 192.168.81.130 255.255.255.192
 standby 3 ip 192.168.81.129 
 standby 3 priority 110
-int s0/0/0
-ip add 192.168.81.194 255.255.255.252
+
+interface se0/0/0
+ip address 192.168.81.194 255.255.255.252
+no shutdown
+exit
+interface gig0/1
+ip address 192.168.81.201 255.255.255.252
+no shutdown
+exit
+
+ip route 172.16.136.0 255.255.248.0 192.168.81.202
+ip route 172.16.144.0 255.255.240.0 192.168.81.202
+
+router eigrp 1
+network 192.168.80.0
+network 192.168.81.0
+network 192.168.81.192
+network 192.168.81.198
+network 172.17.160.0
+network 172.17.168.0
+auto-summary
+redistribute static
+exit
+key chain REDES
+key 1
+key-string claveEIGRP
+exit
+interface se0/0/0
+bandwidth 1024
+ip bandwidth-percent 40
+delay 50
+ip authentication mode eigrp 1 md5
+ip authentication key-chain eigrp 1 REDES
+
 
 
 int loop 0
@@ -76,6 +108,7 @@ login local
 transport input ssh
 exit
 
+
 int g0/0
 no shut
 int g0/0.50
@@ -92,6 +125,32 @@ ip add 192.168.81.130 255.255.255.192
 standby 3 ip 192.168.81.129 
 int s0/0/0
 ip add 192.168.81.198 255.255.255.252
+
+interface gig0/1
+ip address 192.168.40.1 255.255.255.0
+no shutdown
+exit
+
+router eigrp 1
+network 192.168.80.0
+network 192.168.81.0
+network 192.168.40.0
+auto-summary
+exit
+
+key chain REDES1
+key 1
+key-string claveEIGRP
+exit
+exit
+
+interface se0/0/0
+ip bandwidth-percent 40
+delay 50
+ip authentication mode eigrp 1 md5
+ip authentication key-chain eigrp 1 REDES1
+exit
+
 
 -----------------------------------------
 Router 3
@@ -114,10 +173,82 @@ login local
 transport input ssh
 exit
 
+interface fa0/0
+ip address 192.168.81.202 255.255.255.252
+no shutdown
+exit
+interface fa0/1
+ip address 172.16.136.1 255.255.248.0
+no shutdown
+exit
 int loop 0
 ip address 172.16.144.1 255.255.248.0
 int loop 1
 ip address 172.16.152.1 255.255.252.0
+
+ip route 0.0.0.0 0.0.0.0 192.168.81.201
+
+-----------------------------------------
+Router 7
+enable
+config t
+hostname ROUTER7
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
+
+interface se0/0/0
+ip address 192.168.81.193 255.255.255.252
+no shutdown
+exit
+interface se0/0/1
+ip address 192.168.81.197 255.255.255.252
+no shutdown
+exit
+interface gig0/1
+ip address 148.239.62.80 255.255.255.0
+no shutdown
+exit
+
+ip route 0.0.0.0 0.0.0.0 gig0/1
+
+router eigrp 1
+network 192.168.81.192
+network 192.168.81.196
+auto-summary
+redistribute static
+exit
+key chain REDES2
+key 1
+key-string claveEIGRP
+exit
+exit
+
+interface se0/0/0
+bandwidth 1024
+ip bandwidth-percent 40
+delay 50
+ip authentication mode eigrp 1 md5
+ip authentication key-chain eigrp 1 REDES2
+exit
+interface se0/0/1
+ip bandwidth-percent 40
+delay 50
+ip authentication mode eigrp 1 md5
+ip authentication key-chain eigrp 1 REDES2
+exit
 
 -----------------------------------------
 Switch 1 - Servidor VTP
