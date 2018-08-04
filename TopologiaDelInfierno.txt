@@ -34,16 +34,19 @@ no shutdown
 int g0/0.50
 encapsulation dot1q 50
 ip add 192.168.80.2 255.255.255.0
+ip helper-address 192.168.81.139
 standby 1 ip 192.168.80.1
 standby 1 priority 110
 int g0/0.55
 encapsulation dot1q 55
 ip add 192.168.81.2 255.255.255.128
+ip helper-address 192.168.81.139
 standby 2 ip 192.168.81.1
 standby 2 priority 110
 int g0/0.80
 encapsulation dot1q 80
 ip add 192.168.81.130 255.255.255.192
+ip helper-address 192.168.81.139
 standby 3 ip 192.168.81.129 
 standby 3 priority 110
 
@@ -115,14 +118,17 @@ no shut
 int g0/0.50
 encapsulation dot1q 50
 ip add 192.168.80.2 255.255.255.0
+ip helper-address 192.168.81.139
 standby 1 ip 192.168.80.1
 int g0/0.55
 encapsulation dot1q 55
 ip add 192.168.81.2 255.255.255.128
+ip helper-address 192.168.81.139
 standby 2 ip 192.168.81.1
 int g0/0.80
 encapsulation dot1q 80
 ip add 192.168.81.130 255.255.255.192
+ip helper-address 192.168.81.139
 standby 3 ip 192.168.81.129 
 int s0/0/0
 ip add 192.168.81.198 255.255.255.252
