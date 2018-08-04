@@ -258,7 +258,7 @@ Switch 1 - Servidor VTP
 enable
 config t
 hostname SWITCH1
-enable secret cisco
+enable secret ciscouag
 banner motd #Solo personal autorizado#
 username gmedina secret cisco
 ip domain-name uag.mx
