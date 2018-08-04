@@ -29,7 +29,8 @@ line vty 0 15
 login local
 transport input ssh
 exit
-
+int gi0/0
+no shutdown
 int g0/0.50
 encapsulation dot1q 50
 ip add 192.168.80.2 255.255.255.0
@@ -125,6 +126,7 @@ ip add 192.168.81.130 255.255.255.192
 standby 3 ip 192.168.81.129 
 int s0/0/0
 ip add 192.168.81.198 255.255.255.252
+no shutdown
 
 interface gig0/1
 ip address 192.168.40.1 255.255.255.0
