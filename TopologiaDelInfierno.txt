@@ -74,7 +74,7 @@ key-string claveEIGRP
 exit
 interface se0/0/0
 bandwidth 1024
-ip bandwidth-percent 40
+ip bandwidth-percent 40*
 delay 50
 ip authentication mode eigrp 1 md5
 ip authentication key-chain eigrp 1 REDES
