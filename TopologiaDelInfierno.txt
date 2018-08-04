@@ -14,6 +14,22 @@ Router 5
 enable
 config t
 hostname ROUTER5
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
+
 int loop 0
 ip address 172.17.160.1 255.255.255.0
 int loop 1
@@ -25,6 +41,22 @@ Router 3
 enable
 config t
 hostname ROUTER3
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
+
 int loop 0
 ip address 172.16.144.1 255.255.248.0
 int loop 1
@@ -36,6 +68,22 @@ Switch 1 - Servidor VTP
 enable
 config t
 hostname SWITCH1
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
+
 vtp domain uag.mx
 vtp password cisco
 vtp mode server
@@ -74,6 +122,22 @@ Switch 2
 enable
 config t
 hostname SWITCH2
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
+
 vtp domain uag.mx
 vtp password ciscouag 
 vtp mode client
@@ -103,6 +167,22 @@ Switch 6
 enable
 config t
 hostname SWITCH6
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
+
 vtp domain uag.mx
 vtp password ciscouag 
 vtp mode client
@@ -145,6 +225,22 @@ Switch 5
 enable
 config t
 hostname SWITCH5
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
+
 vtp domain uag.mx
 vtp password ciscouag 
 vtp mode client
@@ -189,6 +285,22 @@ Router 2
 enable
 config t
 hostname ROUTER2
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
+
 int loop 0
 ip address 172.19.192.1 255.255.192.0
 int loop 1
@@ -200,6 +312,22 @@ Router 7
 enable
 conf t
 hostname ROUTER7
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
+
 int loop 0
 ip address 192.168.120.1 255.255.255.0
 int loop 1
@@ -212,6 +340,22 @@ Router 9
 enable
 conf t
 hostname ROUTER9
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
+
 int loop 0
 ip address 172.18.0.1 255.255.192
 int loop 1
@@ -223,6 +367,22 @@ Switch 3
 enable
 config t
 hostname SWITCH3
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
+
 int range fa0/1-2
 channel-protocol lacp
 channel-group 1 mode active
@@ -245,6 +405,21 @@ Switch 4
 enable
 config t
 hostname SWITCH4
+enable secret cisco
+banner motd #Solo personal autorizado#
+username gmedina secret cisco
+ip domain-name uag.mx
+crypto key generate rsa
+1024
+line con 0
+password cisco
+login
+logging synchronous
+exec-timeout 15
+line vty 0 15
+login local
+transport input ssh
+exit
 int range fa0/1-2
 channel-protocol lacp
 channel-group 1 mode active
